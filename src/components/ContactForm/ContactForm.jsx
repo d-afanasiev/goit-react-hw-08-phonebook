@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as operations from "../../redux/operations";
+// import { Button, TextField } from "@mui/material";
 import css from "./ContactForm.module.css";
 
 export default function ContactForm() {
@@ -67,6 +68,18 @@ export default function ContactForm() {
         value={number}
         id="sendTel"
       />
+      {/* <TextField
+        type="tel"
+        name="number"
+        helperText="Please enter your phone"
+        id="demo-helper-text-aligned"
+        label="Phone"
+        onChange={handleChange}
+        value={number}
+      />
+      <Button type="submit" variant="contained">
+        Add contact
+      </Button> */}
       <button type="submit" className={css.submitName}>
         Add contact
       </button>

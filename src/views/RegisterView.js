@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { authOperations } from '../redux/auth';
 
 const styles = {
@@ -14,7 +14,7 @@ const styles = {
 };
 
 export default function RegisterView() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

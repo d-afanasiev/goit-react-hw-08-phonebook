@@ -1,0 +1,29 @@
+{
+  "contacts": [
+    {
+      "id": "id-3",
+      "name": "Eden Clements",
+      "number": "645-17-79"
+    },
+    {
+      "id": "id-4",
+      "name": "Annie Copeland",
+      "number": "227-91-26"
+    },
+    {
+      "id": "e06b23f0-473b-4f4a-b8d3-63cf8ee50363",
+      "name": "Дмитрий",
+      "number": "227-91034"
+    },
+    {
+      "id": "54bda70b-4135-416b-8ac6-38ae00ddbad1",
+      "name": "Дмитрий",
+      "number": "227-91034"
+    },
+    {
+      "id": "7fef8995-57a5-4856-99ac-a51f20501030",
+      "name": "Дмитрий",
+      "number": "227-91034"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./App.css";
 import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
@@ -8,8 +10,14 @@ import AppBar from "./components/AppBar";
 import RegisterView from "./views/RegisterView";
 import LoginView from "./views/LoginView";
 import ContactList from "./components/ContactList";
+import { authOperations } from "./redux/auth";
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
   return (
     <div className="App">
       <AppBar />

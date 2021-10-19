@@ -1,7 +1,7 @@
-// import { useDispatch, useSelector } from "react-redux";
-// import { authSelectors, authOperations } from "../../redux/auth";
-import { useDispatch } from "react-redux";
-import { authOperations } from "../../redux/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { authSelectors, authOperations } from "../../redux/auth";
+// import { useDispatch } from "react-redux";
+// import { authOperations } from "../../redux/auth";
 import defaultAvatar from "./default-avatar.png";
 
 const styles = {
@@ -21,15 +21,15 @@ const styles = {
 export default function UserMenu() {
   const dispatch = useDispatch();
 
-  const fullName = "Guest";
+  // const fullName = "Guest";
 
-  // const name = useSelector(fullName);
+  const name = useSelector(authSelectors.getUsername);
   const avatar = defaultAvatar;
 
   return (
     <div style={styles.container}>
       <img src={avatar} alt="" width="32" style={styles.avatar} />
-      <span style={styles.name}>Добро пожаловать, {fullName}</span>
+      <span style={styles.name}>Добро пожаловать, {name}</span>
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Выйти
       </button>

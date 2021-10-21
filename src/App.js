@@ -1,45 +1,48 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import PropTypes from "prop-types";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import HomeView from "./views/HomeView";
-import ContactForm from "./components/ContactForm";
-import Filter from "./components/Filter";
 import AppBar from "./components/AppBar";
 import RegisterView from "./views/RegisterView";
 import LoginView from "./views/LoginView";
-import ContactList from "./components/ContactList";
 import { authOperations } from "./redux/auth";
+import ContactsView from "./views/ContactsView";
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
+import { authSelectors } from "./redux/auth";
 
 export default function App() {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
   return (
     <div className="App">
-      <AppBar />
-      <Switch>
-        <Route exact path="/">
-          <HomeView />
-        </Route>
-        <Route path="/register">
-          <RegisterView />
-        </Route>
-        <Route path="/login">
-          <LoginView />
-        </Route>
-        <Route path="/contacts">
-          <h1 className="titlePhonebook">Phonebook</h1>
-          <ContactForm />
-
-          <h1 className="titleContacts">Contacts</h1>
-          <Filter />
-          <ContactList />
-        </Route>
-      </Switch>
+      {isFetchingCurrentUser ? (
+        <h1>Показываем React Skeleton</h1>
+      ) : (
+        <>
+          <AppBar />
+          <Switch>
+            <PublicRoute exact path="/">
+              <HomeView />
+            </PublicRoute>
+            <PublicRoute path="/register" restricted>
+              <RegisterView />
+            </PublicRoute>
+            <PublicRoute path="/login" restricted>
+              <LoginView />
+            </PublicRoute>
+            <PrivateRoute path="/contacts">
+              <ContactsView />
+            </PrivateRoute>
+          </Switch>
+        </>
+      )}
     </div>
   );
 }

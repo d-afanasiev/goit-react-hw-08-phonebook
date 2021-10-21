@@ -15,13 +15,10 @@ const styles = {
 
 export default function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  // console.log(authSelectors.getIsLoggedIn);
   return (
     <header style={styles.header}>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-      {/* <UserMenu />
-      <AuthNav /> */}
     </header>
   );
 }

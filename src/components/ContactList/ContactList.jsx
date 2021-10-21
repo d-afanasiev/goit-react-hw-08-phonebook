@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchContacts, deleteContacts } from "../../redux/operations";
+import {
+  fetchContacts,
+  deleteContacts,
+} from "../../redux/contacts/contacts-operations";
 import css from "./ContactList.module.css";
-import { visibleList } from "../../redux/selector";
+import { visibleList } from "../../redux/contacts/contacts-selector";
 
 export default function ContactList() {
   const contacts = useSelector(visibleList);

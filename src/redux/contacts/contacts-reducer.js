@@ -4,7 +4,7 @@ import {
   filterContacts,
   addContacts,
   deleteContacts,
-} from "../redux/operations";
+} from "./contacts-operations";
 
 const items = createReducer([], {
   [fetchContacts.fulfilled]: (_, action) => action.payload,

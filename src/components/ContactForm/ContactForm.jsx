@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import * as operations from "../../redux/operations";
+import * as operations from "../../redux/contacts/contacts-operations";
 // import { Button, TextField } from "@mui/material";
 import css from "./ContactForm.module.css";
 

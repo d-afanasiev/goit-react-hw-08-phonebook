@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import reducer from "../redux/reducer";
+import reducer from "./contacts/contacts-reducer";
 import { authReducer } from "./auth";
 
 const middleware = [

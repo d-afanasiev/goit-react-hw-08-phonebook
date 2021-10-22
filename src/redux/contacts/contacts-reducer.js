@@ -1,4 +1,5 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 import {
   fetchContacts,
   filterContacts,
@@ -7,19 +8,21 @@ import {
 } from "./contacts-operations";
 
 const items = createReducer([], {
-  [fetchContacts.fulfilled]: (_, action) => action.payload,
+  [fetchContacts.fulfilled]: (_, { payload }) => payload,
   [addContacts.fulfilled]: (state, { payload }) => {
     const findContacts = state.find((contact) => contact.name === payload.name);
 
     if (!findContacts) {
       return [payload, ...state];
     } else {
+      // Notify.failure(`${payload.name} is already in contacts.`);
       alert(`${payload.name} is already in contacts.`);
-      return state;
+      payload = null;
+      return { state, payload };
     }
   },
-  [deleteContacts.fulfilled]: (state, action) =>
-    state.filter(({ id }) => id !== action.payload),
+  [deleteContacts.fulfilled]: (state, { payload }) =>
+    state.filter(({ id }) => id !== payload),
 });
 
 const isLoading = createReducer(false, {
@@ -35,11 +38,11 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [fetchContacts.rejected]: (_, action) => action.payload,
+  [fetchContacts.rejected]: (_, { payload }) => payload,
   [fetchContacts.pending]: () => null,
-  [addContacts.rejected]: (_, action) => action.payload,
+  [addContacts.rejected]: (_, { payload }) => payload,
   [addContacts.pending]: () => null,
-  [deleteContacts.rejected]: (_, action) => action.payload,
+  [deleteContacts.rejected]: (_, { payload }) => payload,
   [deleteContacts.pending]: () => null,
 });
 

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
@@ -10,7 +9,6 @@ export async function fetchContacts() {
 
 export async function saveContact(value) {
   const { data } = await axios.post("/contacts", {
-    id: uuidv4(),
     name: value.name,
     number: value.number,
   });

@@ -17,8 +17,7 @@ const items = createReducer([], {
     } else {
       Notify.failure(`${payload.name} is already in contacts.`);
       // alert(`${payload.name} is already in contacts.`);
-      payload = null;
-      return { state, payload };
+      return state;
     }
   },
   [deleteContacts.fulfilled]: (state, { payload }) =>

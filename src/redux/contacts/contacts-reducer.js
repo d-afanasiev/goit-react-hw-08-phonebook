@@ -1,5 +1,4 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import { Notify } from "notiflix/build/notiflix-notify-aio";
 import {
   fetchContacts,
   filterContacts,
@@ -10,15 +9,7 @@ import {
 const items = createReducer([], {
   [fetchContacts.fulfilled]: (_, { payload }) => payload,
   [addContacts.fulfilled]: (state, { payload }) => {
-    const findContacts = state.find((contact) => contact.name === payload.name);
-
-    if (!findContacts) {
-      return [payload, ...state];
-    } else {
-      Notify.failure(`${payload.name} is already in contacts.`);
-      // alert(`${payload.name} is already in contacts.`);
-      return state;
-    }
+    return [...payload, ...state];
   },
   [deleteContacts.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),

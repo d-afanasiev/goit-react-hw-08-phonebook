@@ -8,17 +8,6 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import css from "../styles/RegisterView.module.css";
 
-// const styles = {
-//   form: {
-//     width: 320,
-//   },
-//   label: {
-//     display: "flex",
-//     flexDirection: "column",
-//     marginBottom: 15,
-//   },
-// };
-
 export default function RegisterView() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -90,32 +79,6 @@ export default function RegisterView() {
         <Button type="submit" variant="contained" endIcon={<SendIcon />}>
           Зарегистрироваться
         </Button>
-        {/* <label className={css.label}>
-          Имя
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
-
-        <label className={css.label}>
-          Почта
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label className={css.label}>
-          Пароль
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <button type="submit">Зарегистрироваться</button> */}
       </form>
     </Box>
   );

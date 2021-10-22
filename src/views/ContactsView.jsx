@@ -4,6 +4,9 @@ import ContactForm from "../components/ContactForm";
 import Filter from "../components/Filter";
 import ContactList from "../components/ContactList";
 import { fetchContacts } from "../redux/contacts";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import css from "../styles/ContactsView.module.css";
 
 export default function ContactsView() {
   const dispatch = useDispatch();
@@ -11,13 +14,17 @@ export default function ContactsView() {
   useEffect(() => dispatch(fetchContacts()), [dispatch]);
 
   return (
-    <>
-      <h1 className="titlePhonebook">Phonebook</h1>
+    <Box className={css.container}>
+      <Typography variant="h3" className={css.title}>
+        Phonebook
+      </Typography>
       <ContactForm />
 
-      <h1 className="titleContacts">Contacts</h1>
+      <Typography variant="h3" className={css.title}>
+        Contacts
+      </Typography>
       <Filter />
       <ContactList />
-    </>
+    </Box>
   );
 }

@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  margin-right: 4px;
+}
+.name {
+  font-weight: 700;
+}

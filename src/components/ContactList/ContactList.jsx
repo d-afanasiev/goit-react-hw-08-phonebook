@@ -56,21 +56,6 @@ export default function ContactList() {
         </TableBody>
       </Table>
     </TableContainer>
-    // <ul className={css.listContacts}>
-    //   {contacts &&
-    //     contacts.map((contact) => (
-    //       <li key={contact.id} className={css.item}>
-    //         {contact.name}: {contact.number}
-    //         <button
-    //           type="submit"
-    //           className={css.button}
-    //           onClick={() => deleteContact(contact)}
-    //         >
-    //           Delete
-    //         </button>
-    //       </li>
-    //     ))}
-    // </ul>
   );
 }
 

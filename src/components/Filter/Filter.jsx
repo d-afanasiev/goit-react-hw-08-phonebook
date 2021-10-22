@@ -18,7 +18,6 @@ export default function Filter() {
       <Typography variant="div" className={css.title}>
         Find contacts by name
       </Typography>
-      {/* <p>Find contacts by name</p> */}
       <TextField
         className={css.input}
         id="standard-search"
@@ -29,14 +28,6 @@ export default function Filter() {
         onChange={filterList}
         margin="normal"
       />
-      {/* <input
-        type="text"
-        name="filter"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-        className={css.inputFilter}
-        onChange={filterList}
-      /> */}
     </Box>
   );
 }

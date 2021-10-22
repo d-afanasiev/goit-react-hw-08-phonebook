@@ -7,10 +7,6 @@ import { fetchContacts } from "../redux/contacts";
 
 export default function ContactsView() {
   const dispatch = useDispatch();
-  // const isLoadingContacts = useSelector(getContacts);
-
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const toggleModal = () => setIsModalOpen((state) => !state);
 
   useEffect(() => dispatch(fetchContacts()), [dispatch]);
 

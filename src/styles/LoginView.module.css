@@ -1,0 +1,21 @@
+.container {
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 15px;
+}

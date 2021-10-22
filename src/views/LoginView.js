@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../redux/auth";
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: 15,
-  },
-};
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import css from "../styles/LoginView.module.css";
 
 export default function LoginView() {
   const dispatch = useDispatch();
@@ -37,32 +32,39 @@ export default function LoginView() {
   };
 
   return (
-    <div>
-      <h1>Страница логина</h1>
+    <Box className={css.container}>
+      <Typography variant="h4" className={css.title}>
+        Страница логина
+      </Typography>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Почта
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label style={styles.label}>
-          Пароль
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <button type="submit">Войти</button>
+      <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
+        <TextField
+          className={css.input}
+          required
+          id="outlined-required"
+          label="Email"
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+          margin="normal"
+        />
+        <TextField
+          className={css.input}
+          required
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          name="password"
+          autoComplete="current-password"
+          value={password}
+          onChange={handleChange}
+          margin="normal"
+        />
+        <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+          Войти
+        </Button>
       </form>
-    </div>
+    </Box>
   );
 }

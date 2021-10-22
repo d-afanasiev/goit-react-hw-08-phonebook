@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
+import css from "./styles/App.module.css";
 import PropTypes from "prop-types";
 import { Switch } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import HomeView from "./views/HomeView";
-import AppBar from "./components/AppBar";
+import MainAppBar from "./components/AppBar";
 import RegisterView from "./views/RegisterView";
 import LoginView from "./views/LoginView";
 import { authOperations } from "./redux/auth";
@@ -21,12 +23,14 @@ export default function App() {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
   return (
-    <div className="App">
+    <Box className={css.wrapperBox}>
       {isFetchingCurrentUser ? (
-        <h1>Показываем React Skeleton</h1>
+        <Box className={css.wrapperProgress}>
+          <CircularProgress />
+        </Box>
       ) : (
         <>
-          <AppBar />
+          <MainAppBar />
           <Switch>
             <PublicRoute exact path="/">
               <HomeView />
@@ -43,7 +47,7 @@ export default function App() {
           </Switch>
         </>
       )}
-    </div>
+    </Box>
   );
 }
 

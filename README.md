@@ -1,4 +1,6 @@
-# goit-react-hw-08-phonebook
+# PHONEBOOK
+
+### An application to save phone contacts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
